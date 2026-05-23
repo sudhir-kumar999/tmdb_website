@@ -1,4 +1,3 @@
-import React from 'react'
 import MoviePage from './components/MoviePage'
 
 const App = () => {
