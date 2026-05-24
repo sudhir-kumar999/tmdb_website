@@ -49,19 +49,19 @@ const MoviePage = () => {
     async function fetchSearch() {
       let url = "";
       if (search.trim() !== "") {
+        setLoading(true)
         url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${search}`;
       } else if (category == "popular") {
-        // console.log(category)
+        setLoading(true)
         url = `https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&query=${search}`;
       } else if (category == "top") {
-        // console.log(category)
+        setLoading(true)
         url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${api_key}&query=${search}`;
       } else {
+        setLoading(true)
         url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${api_key}&page=7`;
       }
       const res = await axios.get(url);
-      console.log("resukt search");
-      console.log(res.data.results);
       setMovie(res.data.results);
       setLoading(false);
     }
